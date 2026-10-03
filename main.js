@@ -76,7 +76,7 @@
     /* 4. Statement: words fill in as it scrolls through the viewport. */
     var fill = document.querySelector("[data-wordfill]");
     if (fill && !calm) {
-      var p = fill.querySelector("p");
+      var p = fill.querySelector(".band-text") || fill.querySelector("p");
       var words = [];
       var wrapText = function (node) {
         Array.prototype.slice.call(node.childNodes).forEach(function (n) {
@@ -129,7 +129,7 @@
       });
     }
 
-    /* 6. Cards: a glow follows the pointer. */
+    /* 6. Index rows: a glow follows the pointer. */
     if (fine) {
       Array.prototype.forEach.call(document.querySelectorAll("[data-glow]"), function (c) {
         c.addEventListener("pointermove", function (e) {
@@ -141,19 +141,25 @@
     }
 
     /* 7. Reveal on scroll, staggered within each group. */
-    var reveals = document.querySelectorAll(".reveal");
+    var reveals = document.querySelectorAll(".reveal, [data-giant]");
     if (!("IntersectionObserver" in window) || calm) {
       Array.prototype.forEach.call(reveals, function (el) { el.classList.add("is-in"); });
     } else {
-      Array.prototype.forEach.call(document.querySelectorAll(".cards"), function (list) {
+      Array.prototype.forEach.call(document.querySelectorAll(".rows"), function (list) {
         Array.prototype.forEach.call(list.children, function (el, idx) { el.style.setProperty("--i", idx); });
       });
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (en) {
-          if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); }
+          if (!en.isIntersecting) return;
+          var t = en.target.__revealTarget || en.target;
+          t.classList.add("is-in"); io.unobserve(en.target);
         });
       }, { rootMargin: "0px 0px -12% 0px", threshold: 0.12 });
-      Array.prototype.forEach.call(reveals, function (el) { io.observe(el); });
+      Array.prototype.forEach.call(reveals, function (el) {
+        /* clipped elements never intersect, so watch their section instead */
+        if (el.hasAttribute("data-giant")) { el.parentNode.__revealTarget = el; io.observe(el.parentNode); }
+        else io.observe(el);
+      });
     }
   });
 })();

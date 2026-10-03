@@ -2,14 +2,17 @@
 
 A single landing page with no dependencies: HTML, CSS and one small script (`main.js`). No trackers, no cookies, and fonts are self-hosted.
 
+Visual language: an architectural survey sheet. Square corners, hairline rules, a drafting grid, registration marks, and a title block along the bottom of the hero.
+
 Interactions:
-- the header wordmark settles into the i_ mark on scroll
+- the header wordmark rotates into the i_ mark on scroll
 - the hero's italic word reveals letter by letter, and the contour artwork drifts and follows the pointer
 - the lot plan draws itself in
-- the seal ring rotates
-- the statement fills in word by word as you scroll, with a highlight lamp under the pointer
-- cards glow under the pointer
-- the marquee scrolls slowly
+- the seal stamps onto the sheet and its ring rotates
+- the philosophy band fills in word by word, with a highlight lamp under the pointer
+- index rows glow, and their numerals shift to italic under the pointer
+- an outlined marquee fills on hover
+- the giant wordmark rises into view at the end
 
 All of these are skipped when reduced motion is set. The contour artwork is generated, not a photo.
 
