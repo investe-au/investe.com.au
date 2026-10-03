@@ -1,10 +1,22 @@
 # investe.com.au
 
-A static, dependency-free site: plain HTML and CSS, no JavaScript, no trackers, no cookies, and fonts self-hosted.
+A single landing page with no dependencies: HTML, CSS and one small script (`main.js`). No trackers, no cookies, and fonts are self-hosted.
+
+Interactions:
+- the header wordmark settles into the i_ mark on scroll
+- the hero's italic word reveals letter by letter, and the contour artwork drifts and follows the pointer
+- the lot plan draws itself in
+- the seal ring rotates
+- the statement fills in word by word as you scroll, with a highlight lamp under the pointer
+- cards glow under the pointer
+- the marquee scrolls slowly
+
+All of these are skipped when reduced motion is set. The contour artwork is generated, not a photo.
 
 | File | Purpose |
 |---|---|
-| `index.html` | The page |
+| `index.html` | The page (logo and hero artwork are inline SVG) |
+| `main.js` | Interactions |
 | `styles.css` | All styling. **The brand colours are the `:root` tokens at the top of the file.** |
 | `404.html` | Not-found page |
 | `assets/` | Wordmark SVGs, link-preview image (`og-image.png`), app icon, fonts (SIL OFL) |
