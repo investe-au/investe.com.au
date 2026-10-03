@@ -2,7 +2,7 @@
   "name": "investe",
   "short_name": "investe",
   "icons": [{ "src": "/assets/icon-512.png", "sizes": "512x512", "type": "image/png" }],
-  "theme_color": "#F5F2EC",
-  "background_color": "#F5F2EC",
+  "theme_color": "#F1ECE3",
+  "background_color": "#F1ECE3",
   "display": "browser"
 }

@@ -19,13 +19,11 @@ python3 -m http.server 4173 --directory .
 ```
 Then open http://localhost:4173
 
-## When the final logo arrives (from Claude Design)
+## Brand
 
-1. Replace the colour values in the two `:root` blocks of `styles.css`: one for light mode, one for dark.
-2. Replace `favicon.svg`, `favicon.ico`, `apple-touch-icon.png`, `assets/icon-512.png` and `assets/og-image.png` with the new files. Keep the same names.
-3. Optional: the header wordmark is currently live text (`inv<span>este</span>`). To use the final logo artwork instead, replace that `<a class="wordmark">` contents in `index.html` and `404.html` with
-   `<img src="/assets/investe-wordmark.svg" alt="investe" width="150" height="38">`, and save the new SVG over `assets/investe-wordmark.svg`.
-4. Update the copyright year in the footer each January.
+Logo, palette and fonts come from the Claude Design kit, kept in `../Brand/Final - Claude Design/`.
+Colours live in the two `:root` blocks at the top of `styles.css`: the kit's light palette, plus a dark-mode palette derived from it.
+Update the copyright year in the footer each January.
 
 ## Publishing
 
