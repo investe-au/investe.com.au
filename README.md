@@ -26,3 +26,22 @@ Then open http://localhost:4173
 3. Optional: the header wordmark is currently live text (`inv<span>este</span>`). To use the final logo artwork instead, replace that `<a class="wordmark">` contents in `index.html` and `404.html` with
    `<img src="/assets/investe-wordmark.svg" alt="investe" width="150" height="38">`, and save the new SVG over `assets/investe-wordmark.svg`.
 4. Update the copyright year in the footer each January.
+
+## Publishing
+
+The site is hosted on **GitHub Pages** from the `investe-au` GitHub account, repo
+[investe-au/investe.com.au](https://github.com/investe-au/investe.com.au). It's kept separate from any work account.
+
+- DNS (in Squarespace): `ALIAS @ → investe-au.github.io`, `CNAME www → investe-au.github.io`,
+  plus the `_github-pages-challenge-investe-au` TXT record that verifies the domain.
+- This folder is the git repo. Its local git config pins the commit identity to
+  investe-au's no-reply address and uses a separate GitHub CLI login stored in `~/.config/gh-investe`.
+
+To publish a change:
+
+```bash
+cd "/Users/nickestephen/BIRE Dropbox/Nick Estephen/1 - Personal/2 - Investe/Website"
+git add -A && git commit -m "Update site" && git push
+```
+
+GitHub rebuilds the site within about a minute.
